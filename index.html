@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>ClickOut Demo - Delete class if click outside element</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      html {
+        min-height: 100vh;
+      }
+      body {
+        padding: 2em;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .row {
+        margin-bottom: 1em;
+      }
+
+      .button {
+        background-color: rgba(255,255,255,0);
+        padding: 0.5em 1em;
+        border: 1px solid #eee;
+        cursor: pointer;
+        outline: 0;
+      }
+
+      .button:hover {
+        border-color: #ccc;
+      }
+
+      .button.is-active {
+        background-color: #eee;
+      }
+
+      .title {
+        margin-bottom: 1em;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      .code {
+        background-color: #eee;
+        text-align: left;
+        padding: 1em;
+        border-radius: 5px;
+      }
+
+      .code span {
+        color: #999;
+      }
+
+      .box {
+        background-color: #eee;
+        padding: 1em;
+        border-radius: 5px;
+        margin-bottom: 1em;
+      }
+
+      .box.is-active {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div style="text-align: center; margin-bottom: 2em;">
+      <h1>ClickOut Demo</h1>
+      <p style="margin-top: 1em;">[ <a href="https://rainjeck.github.io/clickout/">GitHub</a> ]</p>
+    </div>
+
+    <div class="container">
+
+      <p style="margin-bottom: 1em;">Delete class "is-active" if click outside element</p>
+
+      <div class="box is-active js-clickout">
+        <p>Test box</p>
+      </div>
+
+      <div class="box is-active js-clickout">
+        <p>Text box 2</p>
+      </div>
+
+      <div class="row">
+        <p><button type="button" id="activate-btn" class="button is-active js-clickout">Activate</button></p>
+      </div>
+
+      <div class="code">
+        <div class="title">Usage:</div>
+        <pre>
+          <code>
+Layout:
+
+&lt;div class="js-clickout"&gt;&lt;/div&gt;
+
+Javascript:
+
+var clickout = new clickOut.default({
+  className: '.js-clickout', <span>// class name where outside click</span>
+  activeClass: 'is-active', <span>// class name for delete</span>
+  after: function(elements) {} <span>// after click</span>
+});
+          </code>
+        </pre>
+      </div>
+
+    </div>
+
+    <script src="dest/clickout.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        var clickout = new clickOut.default({
+          after: function(elements) {
+            console.log(elements);
+          }
+        });
+
+        var btn = document.querySelector("#activate-btn");
+
+        btn.addEventListener("click", function() {
+          var elems = document.querySelectorAll(".js-clickout");
+          [].forEach.call(elems, function(elem) {
+            elem.classList.add("is-active");
+          });
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

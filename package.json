@@ -1,0 +1,30 @@
+{
+  "name": "clickout",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Tishuk Nadezda",
+  "homepage": "https://rainjeck.github.io/clickout/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rainjeck/clickout"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-modules-umd": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-css": "^0.1.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-livereload": "^4.0.1",
+    "gulp-load-plugins": "^1.6.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "http": "^0.0.0",
+    "st": "^1.2.2"
+  }
+}
